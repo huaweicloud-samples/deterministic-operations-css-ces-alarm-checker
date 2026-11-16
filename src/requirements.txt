@@ -1,0 +1,6 @@
+# 华为云 Python SDK（CSS / CES / IAM 客户端）
+huaweicloudsdkcore>=3.1.0
+huaweicloudsdkcss>=3.1.0
+huaweicloudsdkces>=3.1.0
+huaweicloudsdkiam>=3.1.0
+argparse>=1.4.0

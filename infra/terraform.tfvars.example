@@ -1,0 +1,25 @@
+# terraform.tfvars 示例 —— 复制为 terraform.tfvars 后按需修改
+# 凭据注入方式：一律经环境变量注入，禁止写入本文件或任何落盘文件：
+#   export HW_ACCESS_KEY="<HW_ACCESS_KEY>"
+#   export HW_SECRET_KEY="<HW_SECRET_KEY>"
+#   export HW_PROJECT_ID="<HW_PROJECT_ID>"   # src/ 工具使用
+
+region          = "cn-north-4"
+stack_prefix    = "cssalarm"
+vpc_cidr        = "192.168.0.0/16"
+subnet_cidr     = "192.168.1.0/24"
+css_port        = 9200
+allowed_cidr    = "192.168.0.0/16"
+availability_zone = "cn-north-4a"
+
+# CSS 集群规格（显式写死，不依赖 provider 默认值；部署前按目标 region 实查可用规格）
+css_flavor      = "ess.spec-4u8g"
+css_node_count  = 1
+css_volume_type = "HIGH"
+css_volume_size = 40
+
+# CSS 引擎版本有生命周期限制，部署前按目标区域实查商用可用版本后写死
+css_engine_version = "7.10.2"
+
+free_storage_threshold   = 20480
+alarm_notification_list  = []   # SMN topic urn 列表，如 urn:smn:cn-north-4:<project-id>:sendnotification
